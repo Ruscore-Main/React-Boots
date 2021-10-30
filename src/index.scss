@@ -36,34 +36,12 @@ main {
 }
 
 
-
 .boots {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-.titleBlock {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-.searchBlock {
-  border: 1px solid #F3F3F3;
-  box-sizing: border-box;
-  border-radius: 10px;
-  padding: 0 15px;
-  
-  input {
-    border: 0;
-    padding: 13px;
-    font-size: 16px;
-    width: 200px;
-    outline:none;
-  }
-}
 
 .greenButton {
   width: 100%;
@@ -85,7 +63,7 @@ main {
 .button {
   width: 32px;
   height: 32px;
-
+  display: block;
   background: #FFFFFF;
   border: 1px solid #F2F2F2;
   box-sizing: border-box;

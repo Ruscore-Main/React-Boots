@@ -1,18 +1,17 @@
 import React from 'react';
 
-import bootImage from '../../assets/img/bootImage.jpg';
 import s from './Cart.module.scss'
 
-const CartItem = (props) => {
+const CartItem = ({ title, price, image, onClickRemove, id}) => {
   return (
     <div className={s.cartItem}>
-      <img src={bootImage} alt="cartItemImage" width="70" height="70" />
+      <img src={image} alt="cartItemImage" width="70" height="70" />
       <div>
-        <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-        <span className={s.bold}>12 999 руб.</span>
+        <p>{title}</p>
+        <span className={s.bold}>{price} руб.</span>
       </div>
 
-      <svg
+      <svg onClick={() => onClickRemove({id, title, price, image})}
         width="32"
         height="32"
         viewBox="0 0 32 32"

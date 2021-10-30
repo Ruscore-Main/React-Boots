@@ -32,6 +32,10 @@ header {
       outline: none;
     }
 
+    li {
+      cursor: pointer;
+    }
+
     li:nth-child(2) {
       margin: 0 30px;
     }
