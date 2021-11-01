@@ -28,7 +28,34 @@ body {
   margin: 50px auto 0 auto ;
 }
 
+.cartEmpty {
+  text-align: center;
+  margin: auto;
 
+  p {
+    width: 280px;
+    line-height: 24px;
+  }
+
+  .greenButton {
+    width: 245px;
+    margin-top: 20px;
+
+    &:hover {
+      svg {
+        transform: rotate(180deg) translateX(3px);
+      }
+    }
+
+    svg {
+      position: relative;
+      top: 1px;
+      transform: rotate(180deg);
+      margin-right: 15px;
+      transition: transform 0.15s ease-in-out;
+    }
+  }
+}
 
 main {
   padding: 40px;
@@ -70,3 +97,4 @@ main {
   border-radius: 8px;
   cursor: pointer;
 }
+

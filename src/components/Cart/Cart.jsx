@@ -1,20 +1,13 @@
 import React from 'react';
 
-import CartItem from './CartItem';
 import s from './Cart.module.scss';
-import { removeBootsFromCart } from '../../redux/actions/cart';
-import { useDispatch } from 'react-redux';
-
+import CartEmpty from './CartEmpty';
+import CartFull from './CartFull';
 
 const Cart = React.memo((props) => {
-  const dispatch = useDispatch();
   const cartBlock = React.useRef();
 
   const totalBlock = React.useRef();
-
-  const onClickRemove = boots => {
-    dispatch(removeBootsFromCart(boots));
-  }
 
   let onCloseCLick = React.useCallback(() => props.setVisibleCart(false));
 
@@ -51,48 +44,7 @@ const Cart = React.memo((props) => {
           </svg>
         </div>
 
-        <div className={s.cartItems}>
-          {props.basket.map(el => <CartItem key={el.id} id={el.id} title={el.title} price={el.price} image={el.image} onClickRemove={onClickRemove}/>)}
-        </div>
-
-        <div className={s.cartTotalBlock}>
-          <ul className="">
-            <li>
-              <span>Итого:</span>
-              <div></div>
-              <span className={s.bold}>21 999 руб.</span>
-            </li>
-            <li>
-              <span>Налог 5%:</span>
-              <div></div>
-              <span className={s.bold}>1074 руб.</span>
-            </li>
-          </ul>
-          <button className={'greenButton ' + s.greenButton}>
-            Оформить заказ
-            <svg
-              width="16"
-              height="14"
-              viewBox="0 0 16 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M1 7H14.7143"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M8.71436 1L14.7144 7L8.71436 13"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
+        {props.basket.length ? <CartFull {...props} /> : <CartEmpty onCloseCLick={onCloseCLick} />}
       </div>
     </div>
   );

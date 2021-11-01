@@ -1,6 +1,6 @@
 const ADD_TO_CART = 'ADD_TO_CART',
   REMOVE_FROM_CART = 'REMOVE_FROM_CART',
-  UPDATE_CART = 'UPDATE_CART';
+  SET_CART = 'SET_CART';
 
 const initialState = {
   items: [],
@@ -10,7 +10,7 @@ const initialState = {
 const cartReducer = (state = initialState, action) => {
   // Добавление обуви в корзину
   switch (action.type) {
-    case UPDATE_CART: {
+    case SET_CART: {
       return {
         ...state,
         items: [...action.payload],
